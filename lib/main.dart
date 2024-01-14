@@ -1,3 +1,4 @@
+import 'package:dalel/core/utilis/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'core/routes/app_router.dart';
 void main() {
@@ -12,7 +13,7 @@ class Dalel extends StatelessWidget {
       routerConfig: router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.offWhite),
         useMaterial3: true,
 
       ),
