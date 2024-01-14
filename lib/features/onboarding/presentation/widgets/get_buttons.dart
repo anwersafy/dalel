@@ -4,6 +4,7 @@ import '../../../../core/functions/navigation.dart';
 import '../../../../core/utilis/app_strings.dart';
 import '../../../../core/widgets/custom_button.dart';
 import '../../data/on_boarding_model.dart';
+import '../view/functions/on_boarding.dart';
 
 class GetButtons extends StatelessWidget {
   GetButtons({super.key, required this.currentPage, required this.pageController});
@@ -17,10 +18,12 @@ class GetButtons extends StatelessWidget {
       return Column(
         children: [
           CustomButton(text: AppStrings.createAccount, onPressed: () {
+            OnBoardingVisited();
             customNavigateReplacment(context, '/SignUp');
           }),
           const SizedBox(height: 10),
           CustomButton(text: AppStrings.signIn, onPressed: () {
+            OnBoardingVisited();
             customNavigateReplacment(context, '/SignIn');
           }),
         ],
