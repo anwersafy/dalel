@@ -21,7 +21,7 @@ class CustomSmoothWidgetIndecator extends StatelessWidget {
 
 
 
-      effect: ExpandingDotsEffect(
+      effect: const ExpandingDotsEffect(
         activeDotColor: AppColors.deepBrown,
         dotHeight: 10,
         dotWidth: 10,

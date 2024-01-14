@@ -1,21 +1,22 @@
-import 'package:dalel/core/utilis/app_colors.dart';
+import 'package:dalel/features/onboarding/data/on_boarding_model.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../core/utilis/app_assets.dart';
 import '../../../../core/utilis/app_text_style.dart';
 import 'custom_smooth_indecator.dart';
 
 class OnBoardingWidgetBody extends StatelessWidget {
-   OnBoardingWidgetBody({super.key});
-  final PageController _pageController = PageController();
+    OnBoardingWidgetBody({super.key, required this.pageController,  this.onPageChanged});
+   final PageController pageController;
+   final ValueChanged<int> ?onPageChanged ;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.6,
       child: PageView.builder(
-          itemCount: 3,
+        onPageChanged: onPageChanged,
+        controller: pageController,
+          itemCount: onBoardingList.length,
           itemBuilder: (context, index) {
             return Column(
               children: [
@@ -24,22 +25,22 @@ class OnBoardingWidgetBody extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(AppAssets.onBoarding1),
+                      image: AssetImage(onBoardingList[index].image),
                       fit: BoxFit.fill,
                     ),
                   ),
                     ),
-                SizedBox(height: 20),
-                CustomSmoothWidgetIndecator(pageController: _pageController),
-                Text('Explore The History With Us',
-                    style: CustomTextStyles.poppins500style24.copyWith(fontWeight: FontWeight.bold),
+                const SizedBox(height: 13),
+                CustomSmoothWidgetIndecator(pageController: pageController),
+                Text(onBoardingList[index].title,
+                    style: CustomTextStyles.poppins500style24.copyWith(fontWeight: FontWeight.bold,fontSize: 20),
                   textAlign: TextAlign.center,
                 maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 20),
-                Text('Explore The History With Us',
-                    style: CustomTextStyles.poppins500style24,
+                const SizedBox(height: 12),
+                Text(onBoardingList[index].description,
+                    style: CustomTextStyles.poppins500style24.copyWith(fontSize: 13),
                   textAlign: TextAlign.center),
 
 
