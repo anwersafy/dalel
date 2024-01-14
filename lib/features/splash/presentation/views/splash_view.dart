@@ -1,11 +1,34 @@
-import 'package:flutter/cupertino.dart';
+import 'package:dalel/core/utilis/app_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-class SplashView extends StatelessWidget {
+import '../../../../core/functions/navigation.dart';
+import '../../../../core/utilis/app_text_style.dart';
+
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
+  State<SplashView> createState() => _SplashViewState();
+}
+class _SplashViewState extends State<SplashView> {
+  void initState() {
+    super.initState();
+    delayedNavigate(context);
   }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      body: Center(
+        child: Text(AppStrings.appName,style: CustomTextStyles.pacifico400style64,),
+      ),
+    );
+  }
+}
+void delayedNavigate(context) {
+  Future.delayed(const Duration(seconds: 2), () {
+    customNavigate( context, '/onBoarding');
+  });
 }
