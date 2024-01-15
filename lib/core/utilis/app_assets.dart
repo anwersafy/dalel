@@ -5,4 +5,5 @@ abstract class  AppAssets {
   static const String success = 'assets/images/Success.png';
   static const String Vector1 = 'assets/images/Vector1.svg';
   static const String Vector2 = 'assets/images/Vector2.svg';
+  static const String forgotPassword = 'assets/images/Frame 1.png';
 }

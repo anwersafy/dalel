@@ -22,8 +22,8 @@ class CustomSignUpForm extends StatelessWidget {
 
 
         }else if(state is SignUpSuccess){
-          customNavigateReplacment(context, '/home');
-          showToast('SignUp Success');
+          customNavigateReplacment(context, '/SignIn');
+          showToast('Email Verification Sent');
 
         }
       },
@@ -89,7 +89,7 @@ class CustomSignUpForm extends StatelessWidget {
                     if(authCubit.termsAndConditionCheckboxValue==true){
                       if(authCubit.signUpformKey.currentState!.validate()){
 
-                        authCubit.SignInWithEmailAndPassword();
+                        authCubit.SignUpWithEmailAndPassword();
                       }
 
                     }

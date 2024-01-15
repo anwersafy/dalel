@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/presentation/views/forgot_password.dart';
 import '../../features/auth/presentation/views/sign_in_view.dart';
 import '../../features/auth/presentation/views/sign_up_view.dart';
 import '../../features/home/presentation/view/home_view.dart';
@@ -44,6 +45,16 @@ final GoRouter router = GoRouter(
               child: HomeView(),
             )
 
-    )
+    ),
+    GoRoute(
+        path: '/forgotPassword',
+        pageBuilder: (context, state) =>  MaterialPage(
+              child: BlocProvider(
+  create: (context) => AuthCubit(),
+  child: ForgotPasswordView(),
+),
+            )
+
+    ),
   ],
 );
