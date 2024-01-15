@@ -44,7 +44,7 @@ class CustomForgotPasswordForm extends StatelessWidget {
                   const SizedBox(
                     height: 40,
                   ),
-                  state is SignUpLoading
+                  state is ResetPasswordLoading
                       ? const CircularProgressIndicator(color: AppColors.primaryColor,)
                       :
                   CustomButton(

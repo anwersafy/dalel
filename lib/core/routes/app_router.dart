@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/presentation/views/forgot_password.dart';
 import '../../features/auth/presentation/views/sign_in_view.dart';
 import '../../features/auth/presentation/views/sign_up_view.dart';
-import '../../features/home/presentation/view/home_view.dart';
+import '../../features/home/presentation/widgets/navbar_widget.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 final GoRouter router = GoRouter(
@@ -24,37 +24,32 @@ final GoRouter router = GoRouter(
             )),
     GoRoute(
         path: '/signUp',
-        pageBuilder: (context, state) =>  MaterialPage(
+        pageBuilder: (context, state) => MaterialPage(
               child: BlocProvider(
-              create: (context) => AuthCubit(),
-              child: const SignUpView(),
-),
+                create: (context) => AuthCubit(),
+                child: const SignUpView(),
+              ),
             )),
     GoRoute(
         path: '/signIn',
-        
-        pageBuilder: (context, state) =>  MaterialPage(
+        pageBuilder: (context, state) => MaterialPage(
               child: BlocProvider(
-  create: (context) => AuthCubit(),
-  child: const SignInView(),
-),
+                create: (context) => AuthCubit(),
+                child: const SignInView(),
+              ),
             )),
     GoRoute(
-        path: '/home',
-        pageBuilder: (context, state) => const MaterialPage(
-              child: HomeView(),
-            )
-
-    ),
+        path: '/homeNavBar',
+        pageBuilder: (context, state) => MaterialPage(
+              child: HomeNavBarWidget(),
+            )),
     GoRoute(
         path: '/forgotPassword',
-        pageBuilder: (context, state) =>  MaterialPage(
+        pageBuilder: (context, state) => MaterialPage(
               child: BlocProvider(
-  create: (context) => AuthCubit(),
-  child: const ForgotPasswordView(),
-),
-            )
-
-    ),
+                create: (context) => AuthCubit(),
+                child: const ForgotPasswordView(),
+              ),
+            )),
   ],
 );

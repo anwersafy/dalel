@@ -20,7 +20,7 @@ class CustomSignInForm extends StatelessWidget {
         if(state is SignInError){
           showToast('Error: ${state.error}');
         }else if(state is SignInSuccess){
-          FirebaseAuth.instance.currentUser!.emailVerified==true? customNavigateReplacment(context, '/home'):
+          FirebaseAuth.instance.currentUser!.emailVerified==true? customNavigateReplacment(context, '/homeNavBar'):
           showToast('Please Verify Your Email');
 
         }
