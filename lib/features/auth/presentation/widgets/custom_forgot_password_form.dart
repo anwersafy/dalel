@@ -1,6 +1,5 @@
 import 'package:dalel/core/functions/custom_toast.dart';
 import 'package:dalel/features/auth/presentation/cubit/auth_cubit.dart';
-import 'package:dalel/features/auth/presentation/widgets/terms_and_condiction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

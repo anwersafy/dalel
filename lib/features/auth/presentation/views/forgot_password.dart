@@ -1,7 +1,5 @@
 import 'package:dalel/core/utilis/app_assets.dart';
-import 'package:dalel/core/utilis/app_strings.dart';
 import 'package:dalel/features/auth/presentation/widgets/welcome_text_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/custom_forgot_password_form.dart';
@@ -15,21 +13,21 @@ class ForgotPasswordView extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: 100,
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: WelcomeTextWidget(text: 'Forgot Password'),
             ),
           SliverToBoxAdapter(
             child: Image.asset(AppAssets.forgotPassword),
             ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: ForgotPasswordSubtitle(),
             ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: CustomForgotPasswordForm(),
             ),
 

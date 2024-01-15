@@ -51,7 +51,7 @@ final GoRouter router = GoRouter(
         pageBuilder: (context, state) =>  MaterialPage(
               child: BlocProvider(
   create: (context) => AuthCubit(),
-  child: ForgotPasswordView(),
+  child: const ForgotPasswordView(),
 ),
             )
 

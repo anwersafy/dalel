@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -22,7 +23,8 @@ class AuthCubit extends Cubit<AuthState> {
           email: emailAddress!,
           password:password!,
       );
-      verifyEmail();
+     await addUserProfile();
+      await verifyEmail();
       emit(SignUpSuccess());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -84,7 +86,14 @@ emit(SignUpError('The account already exists for that email.'));
       }
     }
   }
-
+  addUserProfile() async {
+   CollectionReference users = FirebaseFirestore.instance.collection('users');
+  await users.add({
+  'firstName': firstName,
+  'lastName': lastName,
+  'emailAddress': emailAddress,
+});
+  }
 
 
 }
