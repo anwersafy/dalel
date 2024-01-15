@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:meta/meta.dart';
 
 part 'auth_state.dart';
 
@@ -12,6 +11,7 @@ class AuthCubit extends Cubit<AuthState> {
    String? emailAddress;
    String? password;
    GlobalKey<FormState> signUpformKey = GlobalKey<FormState>();
+   GlobalKey<FormState> signInformKey = GlobalKey<FormState>();
     bool? termsAndConditionCheckboxValue  = false;
     bool? isPasswordVisible = true;
   SignInWithEmailAndPassword() async {

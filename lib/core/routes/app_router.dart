@@ -1,4 +1,3 @@
-import 'package:dalel/core/services/services_locator.dart';
 import 'package:dalel/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:dalel/features/onboarding/presentation/view/on_boarding_view.dart';
 import 'package:flutter/material.dart';

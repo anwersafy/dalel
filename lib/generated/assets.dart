@@ -2,10 +2,11 @@
 class Assets {
   Assets._();
 
+  static const String fontsPacificoRegular = 'assets/fonts/Pacifico-Regular.ttf';
+  static const String fontsPoppinsRegular = 'assets/fonts/Poppins-Regular.ttf';
   static const String imagesOnboarding1 = 'assets/images/onboarding1.png';
   static const String imagesOnboarding2 = 'assets/images/onboarding2.png';
   static const String imagesOnboarding3 = 'assets/images/onboarding3.png';
-  static const String imagesSuccess = 'assets/images/Success.png';
   static const String imagesVector1 = 'assets/images/Vector1.svg';
   static const String imagesVector2 = 'assets/images/Vector2.svg';
 

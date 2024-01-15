@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
 import '../../../../core/utilis/app_colors.dart';
-import '../../../../core/utilis/app_strings.dart';
 import '../../../../core/utilis/app_text_style.dart';
 
 class HaveAnAccountWidget extends StatelessWidget {
-  const HaveAnAccountWidget({super.key, this.onTap});
+  const HaveAnAccountWidget({super.key, this.onTap, this.text1, this.text2});
   final VoidCallback? onTap;
+  final String? text1 ;
+  final String? text2 ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +20,11 @@ class HaveAnAccountWidget extends StatelessWidget {
           alignment: Alignment.center,
           child: Text.rich(
               TextSpan(
-                text: AppStrings.alreadyHaveAnAccount,
+                text: text1,
                 style: CustomTextStyles.poppins400style12.copyWith(color: AppColors.grey),
                 children: <TextSpan>[
                   TextSpan(
-                      text: AppStrings.signIn,
+                      text: text2,
                       style: CustomTextStyles.poppins400style12.copyWith(
                           color: AppColors.deepGrey, decoration: TextDecoration.underline)),
 

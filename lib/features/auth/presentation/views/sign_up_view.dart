@@ -1,13 +1,9 @@
-import 'package:dalel/core/utilis/app_colors.dart';
 import 'package:dalel/core/utilis/app_strings.dart';
-import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/functions/navigation.dart';
 import '../widgets/custom_signup_form.dart';
-import '../widgets/custom_text_field.dart';
 import '../widgets/have_an_account.dart';
-import '../widgets/terms_and_condiction.dart';
 import '../widgets/welcome_text_widget.dart';
 
 class SignUpView extends StatelessWidget {
@@ -17,10 +13,11 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
         body: Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 16.0),
+      padding:  const EdgeInsets.symmetric(horizontal: 16.0),
       child: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
-           SliverToBoxAdapter(
+           const SliverToBoxAdapter(
             child: SizedBox(
               height: 100,
             ),
@@ -39,8 +36,10 @@ class SignUpView extends StatelessWidget {
 
            SliverToBoxAdapter(
             child: HaveAnAccountWidget(
+              text1: AppStrings.alreadyHaveAnAccount  ,
+              text2: AppStrings.signIn,
               onTap: (){
-                customNavigate(context, '/signIn');
+                customNavigateReplacment(context, '/signIn');
               },
             ),
           ),
