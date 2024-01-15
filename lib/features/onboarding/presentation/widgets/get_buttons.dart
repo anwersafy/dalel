@@ -7,7 +7,7 @@ import '../../data/on_boarding_model.dart';
 import '../view/functions/on_boarding.dart';
 
 class GetButtons extends StatelessWidget {
-  GetButtons({super.key, required this.currentPage, required this.pageController});
+  const GetButtons({super.key, required this.currentPage, required this.pageController});
 
   final int currentPage;
   final PageController pageController;
@@ -30,7 +30,7 @@ class GetButtons extends StatelessWidget {
       );
     } else {
       return CustomButton(text: AppStrings.next, onPressed: () {
-        pageController.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+        pageController.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
       });
     }
   }

@@ -1,6 +1,5 @@
 import 'package:dalel/core/utilis/app_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/database/cache/cache_helper.dart';
 import '../../../../core/functions/navigation.dart';

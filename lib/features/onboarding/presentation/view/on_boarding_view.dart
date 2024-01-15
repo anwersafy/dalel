@@ -1,7 +1,5 @@
-import 'package:dalel/core/database/cache/cache_helper.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/functions/navigation.dart';
-import '../../../../core/services/services_locator.dart';
 import '../widgets/custom_nav_bar.dart';
 import '../widgets/get_buttons.dart';
 import '../widgets/on_boarding_widget.dart';

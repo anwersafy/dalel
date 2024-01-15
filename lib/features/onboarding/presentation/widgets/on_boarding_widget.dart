@@ -5,7 +5,7 @@ import '../../../../core/utilis/app_text_style.dart';
 import 'custom_smooth_indecator.dart';
 
 class OnBoardingWidgetBody extends StatelessWidget {
-    OnBoardingWidgetBody({super.key, required this.pageController,  this.onPageChanged});
+    const OnBoardingWidgetBody({super.key, required this.pageController,  this.onPageChanged});
    final PageController pageController;
    final ValueChanged<int> ?onPageChanged ;
 

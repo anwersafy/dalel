@@ -26,7 +26,7 @@ final GoRouter router = GoRouter(
         pageBuilder: (context, state) =>  MaterialPage(
               child: BlocProvider(
               create: (context) => getIt<AuthCubit>(),
-              child: SignUpView(),
+              child: const SignUpView(),
 ),
             )),
     GoRoute(
@@ -35,7 +35,7 @@ final GoRouter router = GoRouter(
         pageBuilder: (context, state) =>  MaterialPage(
               child: BlocProvider(
   create: (context) => getIt<AuthCubit>(),
-  child: SignInView(),
+  child: const SignInView(),
 ),
             )),
   ],
