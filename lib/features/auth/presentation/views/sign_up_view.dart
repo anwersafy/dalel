@@ -3,6 +3,7 @@ import 'package:dalel/core/utilis/app_strings.dart';
 import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/functions/navigation.dart';
 import '../widgets/custom_signup_form.dart';
 import '../widgets/custom_text_field.dart';
 import '../widgets/have_an_account.dart';
@@ -16,10 +17,10 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
         body: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      padding:  EdgeInsets.symmetric(horizontal: 16.0),
       child: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(
+           SliverToBoxAdapter(
             child: SizedBox(
               height: 100,
             ),
@@ -36,8 +37,12 @@ class SignUpView extends StatelessWidget {
           ),
 
 
-          const SliverToBoxAdapter(
-            child: HaveAnAccountWidget(),
+           SliverToBoxAdapter(
+            child: HaveAnAccountWidget(
+              onTap: (){
+                customNavigate(context, '/signIn');
+              },
+            ),
           ),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:dalel/core/utilis/app_strings.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/database/cache/cache_helper.dart';
@@ -17,7 +18,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
   bool isOnBoardingVisited =  getIt<CacheHelper>().getData(key: 'isOnBoardingVisited')??false;
   if(isOnBoardingVisited==true){
-    delayedNavigate(context, '/SignUp');
+    FirebaseAuth.instance.currentUser==null? delayedNavigate(context, '/SignUp'):delayedNavigate(context, '/home');
 
   }else{
     delayedNavigate(context, '/OnBoarding');

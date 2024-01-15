@@ -3,25 +3,25 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/functions/navigation.dart';
 
-class SignInView extends StatelessWidget {
-  const SignInView({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text('HomeView'),
         actions: [
           IconButton(
             onPressed: () {
-              customNavigateReplacment(context, '/signUp');
+              FirebaseAuth.instance.signOut();
+              customNavigateReplacment(context, '/signIn');
             },
             icon: Icon(Icons.logout),
-          )],
+      )],
       ),
-
       body: Center(
-        child: Text('Sign In'),
+        child: Text('HomeView'),
       ),
     );
   }

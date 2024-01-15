@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/auth/presentation/views/sign_in_view.dart';
 import '../../features/auth/presentation/views/sign_up_view.dart';
+import '../../features/home/presentation/view/home_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 final GoRouter router = GoRouter(
@@ -25,7 +26,7 @@ final GoRouter router = GoRouter(
         path: '/signUp',
         pageBuilder: (context, state) =>  MaterialPage(
               child: BlocProvider(
-              create: (context) => getIt<AuthCubit>(),
+              create: (context) => AuthCubit(),
               child: const SignUpView(),
 ),
             )),
@@ -34,9 +35,16 @@ final GoRouter router = GoRouter(
         
         pageBuilder: (context, state) =>  MaterialPage(
               child: BlocProvider(
-  create: (context) => getIt<AuthCubit>(),
+  create: (context) => AuthCubit(),
   child: const SignInView(),
 ),
             )),
+    GoRoute(
+        path: '/home',
+        pageBuilder: (context, state) => const MaterialPage(
+              child: HomeView(),
+            )
+
+    )
   ],
 );

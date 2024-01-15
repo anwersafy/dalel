@@ -1,8 +1,12 @@
+import 'package:dalel/core/functions/custom_toast.dart';
 import 'package:dalel/features/auth/presentation/cubit/auth_cubit.dart';
 import 'package:dalel/features/auth/presentation/widgets/terms_and_condiction.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
+import '../../../../core/functions/navigation.dart';
 import '../../../../core/utilis/app_colors.dart';
 import '../../../../core/utilis/app_strings.dart';
 import '../../../../core/widgets/custom_button.dart';
@@ -15,36 +19,60 @@ class CustomSignUpForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if(state is SignUpError){
+          showToast('Error: ${state.error}');
+
+
+        }else if(state is SignUpSuccess){
+          customNavigateReplacment(context, '/home');
+          showToast('SignUp Success');
+
+        }
       },
       builder: (context, state) {
+        AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
         return Form(
+          key: authCubit.signUpformKey,
             child: Column(
               children: [
                 CustomTextField(
                   onChanged: (firstName){
-                    BlocProvider.of<AuthCubit>(context).firstName = firstName;
+                    authCubit.firstName = firstName;
                   },
                   labelText: AppStrings.fristName,
                 ),
                 CustomTextField(
                   onChanged: (lastName){
-                    BlocProvider.of<AuthCubit>(context).lastName = lastName;
+                    authCubit.lastName = lastName;
                   },
 
                   labelText: AppStrings.lastName,
                 ),
                 CustomTextField(
                   onChanged: (email){
-                    BlocProvider.of<AuthCubit>(context).emailAddress = email;
+                    authCubit.emailAddress = email;
                   },
 
                   labelText: AppStrings.emailAddress,
                 ),
                 CustomTextField(
-                  onChanged: (password){
-                    BlocProvider.of<AuthCubit>(context).password = password;
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      authCubit.isPasswordVisible == true
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                    ),
+                    onPressed: () {
+                      authCubit.UpdatePasswordVisibility();
+                    },
+                  ),
+                  obscureText: authCubit.isPasswordVisible,
+                  onChanged: (password) {
+                    authCubit.password = password;
                   },
+
+
+
 
                   labelText: AppStrings.password,
                 ),
@@ -52,12 +80,22 @@ class CustomSignUpForm extends StatelessWidget {
                 SizedBox(
                   height: 40,
                 ),
+                state is SignUpLoading
+                    ? CircularProgressIndicator(color: AppColors.primaryColor,)
+                    :
                 CustomButton(
+                  color: authCubit.termsAndConditionCheckboxValue==false?AppColors.grey:AppColors.primaryColor,
+
                   text: AppStrings.signUp,
                   onPressed: () {
-                    BlocProvider.of<AuthCubit>(context).SignInWithEmailAndPassword();
+                    if(authCubit.termsAndConditionCheckboxValue==true){
+                      if(authCubit.signUpformKey.currentState!.validate()){
+
+                        authCubit.SignInWithEmailAndPassword();
+                      }
+
+                    }
                   },
-                  color: AppColors.primaryColor,
                 ),
               ],
             ));

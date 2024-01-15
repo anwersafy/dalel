@@ -10,3 +10,5 @@ class SignUpError extends AuthState {
   final String error;
   SignUpError(this.error);
 }
+class UpdateTermsAndConditionCheckk extends AuthState {}
+class UpdatePasswordVisibilit extends AuthState {}
